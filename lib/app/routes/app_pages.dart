@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:lucely/app/modules/home/middleware/home_middleware.dart';
+import 'package:lucely/app/modules/login/middleware/login_middleware.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -21,12 +23,17 @@ class AppPages {
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+      middlewares: [
+        HomeMiddleware(userRepository: Get.find(), localDataSource: Get.find()),
+      ],
     ),
     GetPage(
-      name: _Paths.LOGIN,
-      page: () => const LoginView(),
-      binding: LoginBinding(),
-    ),
+        name: _Paths.LOGIN,
+        page: () => const LoginView(),
+        binding: LoginBinding(),
+        middlewares: [
+          LoginMiddleware(appStateService: Get.find()),
+        ]),
     GetPage(
       name: _Paths.REGISTER,
       page: () => const RegisterView(),

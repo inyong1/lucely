@@ -1,20 +1,33 @@
+import 'package:get_storage/get_storage.dart';
 import 'package:lucely/app/data/localdata/local_data_source.dart';
 
-class LocalDataSourceImpl extends LocalDataSource{
+class LocalDataSourceImpl extends LocalDataSource {
+  final GetStorage storage;
+
+  const LocalDataSourceImpl(this.storage) : super();
+
   @override
   void delete(String key) {
-    // TODO: implement delete
+    storage.remove(key);
   }
 
   @override
   String readString(String key) {
-    // TODO: implement readString
-    throw UnimplementedError();
+    return storage.read(key) ?? "";
   }
 
   @override
-  void writeString({required String key, required String value}) {
-    // TODO: implement writeString
+  Future<void> writeString({required String key, required String value}) {
+    return storage.write(key, value);
   }
 
+  @override
+  bool readBool(String key) {
+    return storage.read<bool?>(key) ?? true;
+  }
+
+  @override
+  Future<void> writeBool({required String key, required bool value}) {
+    return storage.write(key, value);
+  }
 }
