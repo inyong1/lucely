@@ -30,33 +30,66 @@ class RegisterView extends GetView<RegisterController> {
               16.height,
               const Text('Yu jadi lebih baik bersama lucely'),
               16.height,
-              TextFormField(
-                decoration: const InputDecoration(labelText: "Email"),
-                validator: (value) {
-                  final v = value ?? "";
-                  if (v.isNotEmpty && !v.isEmail) {
-                    return "Invalid email address";
-                  }
-                  return null;
-                },
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-              ),
+              Obx(() {
+                return TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Email",
+                    errorText: controller.emailErrorObs.value,
+                  ),
+                  controller: controller.emailController,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  keyboardType: TextInputType.emailAddress,
+                );
+              }),
               16.height,
-              const TextField(
-                decoration: InputDecoration(labelText: "Kata Sandi", hintText: "Min 8 karakter"),
-              ),
+              Obx(() {
+                final obscure = controller.passwordObscureObs.value;
+                return TextField(
+                  obscureText: obscure,
+                  controller: controller.passwordController,
+                  decoration: InputDecoration(
+                    labelText: "Kata Sandi",
+                    hintText: "Min 8 karakter",
+                    errorText: controller.passwordErrorObs.value,
+                    suffixIcon: InkWell(
+                      onTap: () => controller.passwordObscureObs.toggle(),
+                      child: Icon(obscure ? Icons.visibility_off : Icons.visibility),
+                    ),
+                  ),
+                  keyboardType: TextInputType.visiblePassword,
+                );
+              }),
               16.height,
-              const TextField(
-                decoration:
-                    InputDecoration(labelText: "Konfirmasi Kata Sandi", hintText: "Min 8 karakter"),
-              ),
+              Obx(() {
+                final obscure = controller.passwordObscureObs.value;
+                return TextField(
+                  obscureText: obscure,
+                  controller: controller.password2Controller,
+                  decoration: InputDecoration(
+                    labelText: "Konfirmasi Kata Sandi",
+                    hintText: "Min 8 karakter",
+                    errorText: controller.password2ErrorObs.value,
+                    suffixIcon: InkWell(
+                      onTap: () => controller.passwordObscureObs.toggle(),
+                      child: Icon(obscure ? Icons.visibility_off : Icons.visibility),
+                    ),
+                  ),
+                  keyboardType: TextInputType.visiblePassword,
+                );
+              }),
               16.height,
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Obx(() {
-                    return Checkbox(
-                      value: controller.agreeObs.value,
-                      onChanged: (v) => controller.agreeObs.value = v ?? false,
+                    return Transform.translate(
+                      offset: const Offset(0, -4),
+                      child: Checkbox(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        visualDensity: VisualDensity.compact,
+                        value: controller.agreeObs.value,
+                        onChanged: (v) => controller.agreeObs.value = v ?? false,
+                      ),
                     );
                   }),
                   Expanded(
