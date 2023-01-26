@@ -11,8 +11,7 @@ abstract class UserRepository {
 
   Future<DataState> registerUser({
     required String email,
-    required String password,
-    required String name,
+    required String password
   });
 
   Future<List<User>> getRegisteredUser();

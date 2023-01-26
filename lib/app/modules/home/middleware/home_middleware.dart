@@ -13,18 +13,22 @@ class HomeMiddleware extends GetMiddleware {
   HomeMiddleware({required this.userRepository, required this.localDataSource});
 
   @override
+  RouteSettings? redirect(String? route) {
+    if (localDataSource.readBool(LocalDataSource.KEY_IS_FIRST_RUN)) {
+      return const RouteSettings(name: Routes.INTRO);
+    }
+
+    if (userRepository.getCurrentUser() == null) {
+      return RouteSettings(name: Routes.LOGIN, arguments: Get.arguments);
+    }
+    return super.redirect(route);
+  }
+
+  @override
   Widget onPageBuilt(Widget page) {
     if (localDataSource.readBool(LocalDataSource.KEY_IS_FIRST_RUN)) {
       localDataSource.writeBool(key: LocalDataSource.KEY_IS_FIRST_RUN, value: false);
     }
     return super.onPageBuilt(page);
-  }
-
-  @override
-  RouteSettings? redirect(String? route) {
-    if (userRepository.getCurrentUser() == null) {
-      return RouteSettings(name: Routes.LOGIN, arguments: Get.arguments);
-    }
-    return super.redirect(route);
   }
 }

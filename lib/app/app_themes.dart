@@ -10,15 +10,15 @@ abstract class AppThemes {
         primaryColor: AppColor.blue,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            // backgroundColor: MaterialStateProperty.all(AppColor.blue),
-            // textStyle: MaterialStateProperty.resolveWith(
-            //     (states) => const TextStyle(fontFamily: "sans", fontWeight: FontWeight.bold)),
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            ),
-            // padding: MaterialStateProperty.all(
-            //     const EdgeInsets.symmetric(vertical: 16, horizontal: 16))
-          ),
+              textStyle: MaterialStateProperty.resolveWith(
+                  (states) => const TextStyle(fontFamily: "sans", fontWeight: FontWeight.bold)),
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
+              ),
+              minimumSize: const MaterialStatePropertyAll(Size(50, 44))
+              // padding: MaterialStateProperty.all(
+              //     const EdgeInsets.symmetric(vertical: 16, horizontal: 16))
+              ),
         ),
         appBarTheme: const AppBarTheme(
             elevation: 0,
@@ -33,8 +33,10 @@ abstract class AppThemes {
           fillColor: MaterialStateProperty.all(AppColor.blue),
         ),
         inputDecorationTheme: InputDecorationTheme(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+
           isDense: true,
+
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           // filled: true,
           // fillColor: Colors.white,
@@ -52,7 +54,7 @@ abstract class AppThemes {
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle(
               // tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              // minimumSize: MaterialStateProperty.all(const Size(80, 30)),
+              minimumSize: const MaterialStatePropertyAll(Size(50, 44)),
               // padding: MaterialStateProperty.resolveWith(
               //     (states) => const EdgeInsets.symmetric(horizontal: 10)),
               side: MaterialStateProperty.all(
@@ -76,13 +78,16 @@ abstract class AppThemes {
         //           RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))))),
         // ),
         textTheme: const TextTheme(
-          // bodyText1: TextStyle(fontSize: 30 * 1.33),
-          bodyText2: TextStyle(fontSize: 13),
-          // subtitle1: TextStyle(fontSize: 10)
-        ).apply(
-            // displayColor: const Color(AppColors.colorText808080),
-            // bodyColor: const Color(AppColors.colorText808080),
-            ),
+                bodyMedium: TextStyle(fontSize: 13, color: AppColor.black),
+                // bodyText1: TextStyle(fontSize: 30 * 1.33),
+                // bodyText2: TextStyle(fontSize: 13),
+                // subtitle1: TextStyle(fontSize: 10)
+                headlineMedium:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 28))
+            .apply(
+                // displayColor: const Color(AppColors.colorText808080),
+                // bodyColor: const Color(AppColors.colorText808080),
+                ),
         // checkboxTheme: const CheckboxThemeData().copyWith(
         //   fillColor: const MaterialStatePropertyAll(Color(AppColors.colorPrimary)),
         // ),

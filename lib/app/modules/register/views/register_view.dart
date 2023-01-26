@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
@@ -20,12 +21,12 @@ class RegisterView extends GetView<RegisterController> {
             children: [
               Align(
                 alignment: Alignment.centerLeft,
-                child: Image.asset("assets/icons/ic_app.png", width: 50),
+                child: Image.asset("assets/icons/ic_app.png", width: 44),
               ),
               16.height,
               Text(
                 'Sign Up',
-                style: context.textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),
+                style: context.textTheme.headlineMedium,
               ),
               16.height,
               const Text('Yu jadi lebih baik bersama lucely'),
@@ -41,43 +42,46 @@ class RegisterView extends GetView<RegisterController> {
                   keyboardType: TextInputType.emailAddress,
                 );
               }),
-              16.height,
+              22.height,
               Obx(() {
                 final obscure = controller.passwordObscureObs.value;
-                return TextField(
-                  obscureText: obscure,
-                  controller: controller.passwordController,
-                  decoration: InputDecoration(
-                    labelText: "Kata Sandi",
-                    hintText: "Min 8 karakter",
-                    errorText: controller.passwordErrorObs.value,
-                    suffixIcon: InkWell(
-                      onTap: () => controller.passwordObscureObs.toggle(),
-                      child: Icon(obscure ? Icons.visibility_off : Icons.visibility),
+                return SizedBox(
+                  height: 45,
+                  child: TextField(
+                    obscureText: obscure,
+                    controller: controller.passwordController,
+                    decoration: InputDecoration(
+                      labelText: "Kata Sandi",
+                      hintText: "Min 8 karakter",
+                      errorText: controller.passwordErrorObs.value,
+                      suffixIcon: Icon(obscure ? Icons.visibility_off : Icons.visibility),
                     ),
+                    keyboardType: TextInputType.visiblePassword,
                   ),
-                  keyboardType: TextInputType.visiblePassword,
                 );
               }),
-              16.height,
+              22.height,
               Obx(() {
                 final obscure = controller.passwordObscureObs.value;
-                return TextField(
-                  obscureText: obscure,
-                  controller: controller.password2Controller,
-                  decoration: InputDecoration(
-                    labelText: "Konfirmasi Kata Sandi",
-                    hintText: "Min 8 karakter",
-                    errorText: controller.password2ErrorObs.value,
-                    suffixIcon: InkWell(
-                      onTap: () => controller.passwordObscureObs.toggle(),
-                      child: Icon(obscure ? Icons.visibility_off : Icons.visibility),
+                return SizedBox(
+                  height: 45,
+                  child: TextField(
+                    obscureText: obscure,
+                    controller: controller.password2Controller,
+                    decoration: InputDecoration(
+                      labelText: "Konfirmasi Kata Sandi",
+                      hintText: "Min 8 karakter",
+                      errorText: controller.password2ErrorObs.value,
+                      suffixIcon: InkWell(
+                        onTap: () => controller.passwordObscureObs.toggle(),
+                        child: Icon(obscure ? Icons.visibility_off : Icons.visibility),
+                      ),
                     ),
+                    keyboardType: TextInputType.visiblePassword,
                   ),
-                  keyboardType: TextInputType.visiblePassword,
                 );
               }),
-              16.height,
+              10.height,
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -116,7 +120,7 @@ class RegisterView extends GetView<RegisterController> {
                   ),
                 ],
               ),
-              8.height,
+              30.height,
               Obx(() {
                 return ElevatedButton(
                   onPressed: controller.agreeObs.value ? controller.onButtonBuatAkunClick : null,
@@ -131,9 +135,12 @@ class RegisterView extends GetView<RegisterController> {
                       const WidgetSpan(child: Text('Sudah punya akun')),
                       const TextSpan(text: " "),
                       WidgetSpan(
-                        child: Text(
-                          'Masuk',
-                          style: TextStyle(color: context.theme.primaryColor),
+                        child: InkWell(
+                          onTap: () => Get.toNamed(Routes.LOGIN),
+                          child: Text(
+                            'Masuk',
+                            style: TextStyle(color: context.theme.primaryColor),
+                          ),
                         ),
                       ),
                     ],

@@ -40,7 +40,7 @@ class UserRepositoryImpl extends UserRepository {
 
   @override
   Future<DataState> registerUser(
-      {required String email, required String password, required String name}) async {
+      {required String email, required String password}) async {
     final registerdUserList = await getRegisteredUser();
     if (registerdUserList.any((element) => element.email == email)) {
       return DataStateError(message: "Email already registerd");
@@ -48,9 +48,8 @@ class UserRepositoryImpl extends UserRepository {
     registerdUserList.add(User(
         email: email,
         password: password,
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
-        name: name));
-    final jsonList = registerdUserList.map((e) => e.toJson());
+        id: DateTime.now().millisecondsSinceEpoch.toString()));
+    final jsonList = registerdUserList.map((e) => e.toJson()).toList();
     await localDataSource.writeString(
         key: LocalDataSource.KEY_REGISTERED_USER_LIST, value: jsonEncode(jsonList));
     await Future.delayed(1.seconds);

@@ -1,23 +1,26 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
-  //TODO: Implement LoginController
+import '../../../data/datastate.dart';
 
-  final count = 0.obs;
+class LoginController extends GetxController {
+  final ingatkanObs = false.obs;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final emailErrorObs = Rxn<String>();
+  final passwordErrorObs = Rxn<String>();
+  final loginStateObs = Rx<DataState>(DataStateEmpty());
+  final passwordObscureObs = true.obs;
+
   @override
   void onInit() {
     super.onInit();
   }
 
   @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
   void onClose() {
+    emailController.dispose();
+    passwordController.dispose();
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

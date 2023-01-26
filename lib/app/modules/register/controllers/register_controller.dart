@@ -5,6 +5,7 @@ import 'package:lucely/app/data/datastate.dart';
 import 'package:lucely/app/data/localdata/local_data_source.dart';
 
 import '../../../data/models/user/user_repository.dart';
+import '../../../routes/app_pages.dart';
 
 class RegisterController extends GetxController {
   final LocalDataSource localDataSource;
@@ -57,7 +58,7 @@ class RegisterController extends GetxController {
     super.onClose();
   }
 
-  onButtonBuatAkunClick() {
+  Future<void> onButtonBuatAkunClick() async {
     emailErrorObs.value = null;
     if (emailController.text.isEmpty) {
       emailErrorObs.value = "Input email addresss";
@@ -87,15 +88,28 @@ class RegisterController extends GetxController {
       return;
     }
 
-    Get.showOverlay(
+    final result = await Get.showOverlay(
       loadingWidget: const Center(child: CircularProgressIndicator()),
       asyncFunction: () {
         return userRepository.registerUser(
           email: emailController.text,
           password: passwordController.text,
-          name: "",
         );
       },
     );
+    if (result is DataStateError) {
+      Get.dialog(
+        AlertDialog(
+          title: const Text("Gagal"),
+          content: Text(result.message ?? "Terjadi kesalahan"),
+        ),
+      );
+      return;
+    }
+    Get.snackbar("Berhasil", "User ${emailController.text} berhasil didaftarkan");
+
+    /// sukses registrasi
+    /// go to login
+    Get.offAllNamed(Routes.LOGIN);
   }
 }

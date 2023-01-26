@@ -28,12 +28,13 @@ class AppPages {
       ],
     ),
     GetPage(
-        name: _Paths.LOGIN,
-        page: () => const LoginView(),
-        binding: LoginBinding(),
-        middlewares: [
-          LoginMiddleware(appStateService: Get.find()),
-        ]),
+      name: _Paths.LOGIN,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
+      // middlewares: [
+      //   LoginMiddleware(appStateService: Get.find()),
+      // ],
+    ),
     GetPage(
       name: _Paths.REGISTER,
       page: () => const RegisterView(),

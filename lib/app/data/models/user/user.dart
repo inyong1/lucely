@@ -4,15 +4,16 @@ import 'package:lucely/app/data/models/safe_convert.dart';
 
 class User {
   final String id;
-  final String name;
+  String name = "Demo User";
   final String email;
   final String password;
 
-  User({required this.id, required this.name, required this.email, this.password = ""});
+  User({required this.id, required this.email, this.password = ""}) {
+    name = "Demo User $id";
+  }
 
   factory User.fromJson(json) => User(
         id: asString(json, "id"),
-        name: asString(json, "name"),
         email: asString(json, "email"),
         password: asString(json, "password"),
       );

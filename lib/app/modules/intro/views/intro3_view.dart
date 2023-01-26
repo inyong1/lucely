@@ -47,6 +47,7 @@ class Intro3View extends StatelessWidget {
                   onPressed: () =>Get.toNamed(Routes.REGISTER),
                   child: const Text('Buat Akun'),
                 ),
+                8.height,
                 OutlinedButton(
                   onPressed: () =>Get.toNamed(Routes.LOGIN),
                   child: const Text('Masuk'),
