@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:lucely/app/constant/app_color.dart';
+import 'package:lucely/app/data/datastate.dart';
+import 'package:lucely/app/modules/base_page_view.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
-class LoginView extends GetView<LoginController> {
+class LoginView extends BasePageView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildContent(BuildContext context) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -35,9 +37,9 @@ class LoginView extends GetView<LoginController> {
               Obx(() {
                 return TextFormField(
                   decoration: InputDecoration(
-                    labelText: "Email",
-                    errorText: controller.emailErrorObs.value,
-                    hintText: "nama@website.com"
+                      labelText: "Email",
+                      errorText: controller.emailErrorObs.value,
+                      hintText: "nama@website.com"
                   ),
                   controller: controller.emailController,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -47,22 +49,19 @@ class LoginView extends GetView<LoginController> {
               22.height,
               Obx(() {
                 final obscure = controller.passwordObscureObs.value;
-                return SizedBox(
-                  height: 45,
-                  child: TextField(
-                    obscureText: obscure,
-                    controller: controller.passwordController,
-                    decoration: InputDecoration(
-                      hintText: "Min. 8 karakter",
-                      labelText: "Kata Sandi",
-                      errorText: controller.passwordErrorObs.value,
-                      suffixIcon: InkWell(
-                        onTap: () => controller.passwordObscureObs.toggle(),
-                        child: Icon(obscure ? Icons.visibility_off : Icons.visibility),
-                      ),
+                return TextField(
+                  obscureText: obscure,
+                  controller: controller.passwordController,
+                  decoration: InputDecoration(
+                    hintText: "Min. 8 karakter",
+                    labelText: "Kata Sandi",
+                    errorText: controller.passwordErrorObs.value,
+                    suffixIcon: InkWell(
+                      onTap: () => controller.passwordObscureObs.toggle(),
+                      child: Icon(obscure ? Icons.visibility_off : Icons.visibility),
                     ),
-                    keyboardType: TextInputType.visiblePassword,
                   ),
+                  keyboardType: TextInputType.visiblePassword,
                 );
               }),
               5.height,
@@ -89,10 +88,19 @@ class LoginView extends GetView<LoginController> {
                 ],
               ),
               36.height,
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Login'),
-              ),
+              Obx(() {
+                if(controller.loginStateObs.value is DataStateLoading){
+                  return Container(
+                    height: 48,
+                    alignment: Alignment.center,
+                    child: const CircularProgressIndicator(),
+                  );
+                }
+                return ElevatedButton(
+                  onPressed: controller.onButtonLoginClick,
+                  child: const Text('Login'),
+                );
+              }),
               16.height,
               Center(
                 child: Text.rich(

@@ -68,7 +68,8 @@ class UserRepositoryImpl extends UserRepository {
     if (user.password != password) {
       return DataStateError(message: "Wrong password");
     }
-
+    await localDataSource.writeString(key: LocalDataSource.KEY_USER, value: user.toString());
     return DataStateSuccess(data: user);
   }
+
 }

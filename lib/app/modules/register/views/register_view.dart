@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:lucely/app/modules/base_page_view.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/register_controller.dart';
 
-class RegisterView extends GetView<RegisterController> {
+class RegisterView extends BasePageView<RegisterController> {
   const RegisterView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget buildContent(BuildContext context) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -45,40 +46,34 @@ class RegisterView extends GetView<RegisterController> {
               22.height,
               Obx(() {
                 final obscure = controller.passwordObscureObs.value;
-                return SizedBox(
-                  height: 45,
-                  child: TextField(
-                    obscureText: obscure,
-                    controller: controller.passwordController,
-                    decoration: InputDecoration(
-                      labelText: "Kata Sandi",
-                      hintText: "Min 8 karakter",
-                      errorText: controller.passwordErrorObs.value,
-                      suffixIcon: Icon(obscure ? Icons.visibility_off : Icons.visibility),
-                    ),
-                    keyboardType: TextInputType.visiblePassword,
+                return TextField(
+                  obscureText: obscure,
+                  controller: controller.passwordController,
+                  decoration: InputDecoration(
+                    labelText: "Kata Sandi",
+                    hintText: "Min 8 karakter",
+                    errorText: controller.passwordErrorObs.value,
+                    // suffixIcon: Icon(obscure ? Icons.visibility_off : Icons.visibility),
                   ),
+                  keyboardType: TextInputType.visiblePassword,
                 );
               }),
               22.height,
               Obx(() {
                 final obscure = controller.passwordObscureObs.value;
-                return SizedBox(
-                  height: 45,
-                  child: TextField(
-                    obscureText: obscure,
-                    controller: controller.password2Controller,
-                    decoration: InputDecoration(
-                      labelText: "Konfirmasi Kata Sandi",
-                      hintText: "Min 8 karakter",
-                      errorText: controller.password2ErrorObs.value,
-                      suffixIcon: InkWell(
-                        onTap: () => controller.passwordObscureObs.toggle(),
-                        child: Icon(obscure ? Icons.visibility_off : Icons.visibility),
-                      ),
+                return TextField(
+                  obscureText: obscure,
+                  controller: controller.password2Controller,
+                  decoration: InputDecoration(
+                    labelText: "Konfirmasi Kata Sandi",
+                    hintText: "Min 8 karakter",
+                    errorText: controller.password2ErrorObs.value,
+                    suffixIcon: InkWell(
+                      onTap: () => controller.passwordObscureObs.toggle(),
+                      child: Icon(obscure ? Icons.visibility_off : Icons.visibility),
                     ),
-                    keyboardType: TextInputType.visiblePassword,
                   ),
+                  keyboardType: TextInputType.visiblePassword,
                 );
               }),
               10.height,

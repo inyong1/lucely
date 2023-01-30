@@ -33,7 +33,7 @@ abstract class AppThemes {
           fillColor: MaterialStateProperty.all(AppColor.blue),
         ),
         inputDecorationTheme: InputDecorationTheme(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          // contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
 
           isDense: true,
 
