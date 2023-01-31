@@ -29,13 +29,17 @@ class MenuGridWidget extends StatelessWidget {
         SizedBox(
           width: 60,
           child: Material(
+            clipBehavior: Clip.antiAlias,
               shape: RoundedRectangleBorder(
                 side: const BorderSide(color: AppColor.blue, width: 1.5),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Image.asset(asset),
+              child: InkWell(
+                onTap: (){},
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Image.asset(asset),
+                ),
               )),
         ),
         Text(label),
