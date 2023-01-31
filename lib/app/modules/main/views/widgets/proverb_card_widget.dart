@@ -10,13 +10,13 @@ class ProverbCardWidget extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
               "Today's Proverb",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppColor.black),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppColor.black),
             ),
             Container(
               width: 30,
@@ -26,13 +26,13 @@ class ProverbCardWidget extends StatelessWidget {
             ),
             const Text(
               '"Let your story go. Allow yourself to be present with who you are right now.”',
-              style: TextStyle(fontStyle: FontStyle.italic),
+              style: TextStyle(fontStyle: FontStyle.italic, fontSize: 12),
               textAlign: TextAlign.center,
             ),
             Row(mainAxisSize: MainAxisSize.min, children: const [
               Text(
                 '- Russ Kyle',
-                style: TextStyle(fontWeight: FontWeight.bold, color: AppColor.black),
+                style: TextStyle(fontWeight: FontWeight.bold, color: AppColor.black, fontSize: 12),
               ),
             ])
           ],

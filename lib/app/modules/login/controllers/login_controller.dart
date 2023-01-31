@@ -62,7 +62,7 @@ class LoginController extends GetxController {
       );
     } else {
       await localDataSource.writeBool(key: LocalDataSource.KEY_IS_FIRST_RUN, value: false);
-      Get.offAllNamed(Routes.HOME);
+      Get.offAllNamed(Routes.MAIN);
     }
   }
 }

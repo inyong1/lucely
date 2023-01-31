@@ -3,14 +3,13 @@ import 'package:get/get.dart';
 import 'package:lucely/app/data/localdata/local_data_source.dart';
 import 'package:lucely/app/data/models/user/user_repository.dart';
 
-import '../../../data/appstate_service.dart';
 import '../../../routes/app_pages.dart';
 
-class HomeMiddleware extends GetMiddleware {
+class MainMiddleware extends GetMiddleware {
   final LocalDataSource localDataSource;
   final UserRepository userRepository;
 
-  HomeMiddleware({required this.userRepository, required this.localDataSource});
+  MainMiddleware({required this.userRepository, required this.localDataSource});
 
   @override
   RouteSettings? redirect(String? route) {
