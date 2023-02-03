@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../modules/intro/bindings/intro_binding.dart';
 import '../modules/intro/views/intro_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -22,7 +23,11 @@ class AppPages {
       page: () => const MainView(),
       binding: MainBinding(),
       middlewares: [
-        MainMiddleware(userRepository: Get.find(), localDataSource: Get.find()),
+        MainMiddleware(
+          appStateService: Get.find(),
+          userRepository: Get.find(),
+          localDataSource: Get.find(),
+        ),
       ],
     ),
     GetPage(

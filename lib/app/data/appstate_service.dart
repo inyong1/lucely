@@ -8,6 +8,8 @@ import 'models/user/user.dart';
 class AppStateService extends GetxService {
   final LocalDataSource localDataSource;
 
+  final userObs = Rxn<User>();
+
   AppStateService({required this.localDataSource});
 
   bool get isFirstRun{

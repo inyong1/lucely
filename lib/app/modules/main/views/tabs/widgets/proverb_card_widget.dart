@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constant/app_color.dart';
+import '../../../../../constant/app_color.dart';
 
 class ProverbCardWidget extends StatelessWidget {
   const ProverbCardWidget({super.key});

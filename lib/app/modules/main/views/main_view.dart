@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucely/app/modules/main/controllers/main_controller.dart';
+import 'package:lucely/app/modules/main/views/tabs/akun_view.dart';
+import 'package:lucely/app/modules/main/views/tabs/explorer_view.dart';
 import 'package:lucely/app/modules/main/views/tabs/home_tab_view.dart';
+import 'package:lucely/app/modules/main/views/tabs/konseling_view.dart';
 
 import '../../../constant/app_color.dart';
 
@@ -11,7 +14,17 @@ class MainView extends GetView<MainController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: HomeTabView(),
+      body: Obx(() {
+        switch (controller.tabIndexObs.value) {
+          case 1:
+            return const KonselingView();
+          case 2:
+            return const ExplorerView();
+          case 3:
+            return const AkunView();
+        }
+        return const HomeTabView();
+      }),
       bottomNavigationBar: Obx(() {
         return BottomNavigationBar(
           selectedItemColor: AppColor.blue,
