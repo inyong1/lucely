@@ -39,16 +39,13 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
-  Future<DataState> registerUser(
-      {required String email, required String password}) async {
+  Future<DataState> registerUser({required String email, required String password}) async {
     final registerdUserList = await getRegisteredUser();
     if (registerdUserList.any((element) => element.email == email)) {
       return DataStateError(message: "Email already registerd");
     }
     registerdUserList.add(User(
-        email: email,
-        password: password,
-        id: DateTime.now().millisecondsSinceEpoch.toString()));
+        email: email, password: password, id: DateTime.now().millisecondsSinceEpoch.toString()));
     final jsonList = registerdUserList.map((e) => e.toJson()).toList();
     await localDataSource.writeString(
         key: LocalDataSource.KEY_REGISTERED_USER_LIST, value: jsonEncode(jsonList));
@@ -60,7 +57,9 @@ class UserRepositoryImpl extends UserRepository {
   Future<DataState<User>> login({required String email, required String password}) async {
     await Future.delayed(1.seconds);
     final registerdUserList = await getRegisteredUser();
-    final cek = registerdUserList.where((element) => element.email == email).toList();
+    final cek = registerdUserList
+        .where((element) => element.email.toLowerCase() == email.toLowerCase())
+        .toList();
     if (cek.isEmpty) {
       return DataStateError(message: "Email not registered");
     }
@@ -71,5 +70,4 @@ class UserRepositoryImpl extends UserRepository {
     await localDataSource.writeString(key: LocalDataSource.KEY_USER, value: user.toString());
     return DataStateSuccess(data: user);
   }
-
 }

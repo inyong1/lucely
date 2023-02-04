@@ -26,6 +26,7 @@ void main() async {
       theme: AppThemes.light,
       themeMode: ThemeMode.light,
       darkTheme: AppThemes.light,
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
