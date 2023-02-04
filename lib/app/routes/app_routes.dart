@@ -8,6 +8,11 @@ abstract class Routes {
   static const REGISTER = _Paths.REGISTER;
   static const INTRO = _Paths.INTRO;
   static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const EDITAKUN = _Paths.EDITAKUN;
+  static const GANTISANDI = _Paths.GANTISANDI;
+  static const FAQ = _Paths.FAQ;
+  static const TENTANG_APP = _Paths.TENTANG_APP;
+  static const KONTAK_ADMIN = _Paths.KONTAK_ADMIN;
 }
 
 abstract class _Paths {
@@ -17,4 +22,9 @@ abstract class _Paths {
   static const REGISTER = '/register';
   static const INTRO = '/intro';
   static const NOTIFICATION = '/notification';
+  static const EDITAKUN = '/editakun';
+  static const GANTISANDI = '/gantisandi';
+  static const FAQ = '/faq';
+  static const TENTANG_APP = '/tentang-app';
+  static const KONTAK_ADMIN = '/kontak-admin';
 }
