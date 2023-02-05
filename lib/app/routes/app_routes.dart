@@ -13,6 +13,10 @@ abstract class Routes {
   static const FAQ = _Paths.FAQ;
   static const TENTANG_APP = _Paths.TENTANG_APP;
   static const KONTAK_ADMIN = _Paths.KONTAK_ADMIN;
+  static const PILIH_PSIKOLOG = _Paths.PILIH_PSIKOLOG;
+  static const PILIH_MENTOR = _Paths.PILIH_MENTOR;
+  static const PSIKOLOG_DETAIL = _Paths.PSIKOLOG_DETAIL;
+  static const MENTOR_DETAIL = _Paths.MENTOR_DETAIL;
 }
 
 abstract class _Paths {
@@ -27,4 +31,8 @@ abstract class _Paths {
   static const FAQ = '/faq';
   static const TENTANG_APP = '/tentang-app';
   static const KONTAK_ADMIN = '/kontak-admin';
+  static const PILIH_PSIKOLOG = '/pilih-psikolog';
+  static const PILIH_MENTOR = '/pilih-mentor';
+  static const PSIKOLOG_DETAIL = '/psikolog-detail';
+  static const MENTOR_DETAIL = '/mentor-detail';
 }

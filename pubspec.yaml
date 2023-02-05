@@ -10,6 +10,7 @@ dependencies:
   get: 4.6.5
   get_storage: 2.0.3
   intl: 0.18.0
+#  flutter_rating_bar:
   flutter: 
     sdk: flutter
 
@@ -18,20 +19,20 @@ dev_dependencies:
   flutter_launcher_icons: ^0.11.0
   flutter_test: 
     sdk: flutter
-flutter_icons:
-  android: "ic_launcher"
+
+flutter_icons: 
+  android: ic_launcher
+  image_path: assets/images/logo.png
   ios: false
-  image_path: "assets/images/logo.png"
 
 flutter: 
   assets: 
     - assets/icons/
     - assets/images/
     - assets/logo/
-
-  fonts:
+  fonts: 
     - family: sans
-      fonts:
+      fonts: 
         - asset: assets/fonts/DMSans-Regular.ttf
         - asset: assets/fonts/DMSans-Italic.ttf
           style: italic

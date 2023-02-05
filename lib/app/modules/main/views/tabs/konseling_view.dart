@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:lucely/app/constant/app_color.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
+import '../../../../routes/app_pages.dart';
+
 class KonselingView extends StatelessWidget {
   const KonselingView({super.key});
 
@@ -56,14 +58,26 @@ class KonselingView extends StatelessWidget {
                       "assets/images/psikolog.png",
                       "Psikolog",
                       "Kesehatan mentalmu adalah prioritas utama",
-                      () => _showDialogConselingOpsion(conselingOption1, Get.width),
+                      () async {
+                        final result =
+                            await _showDialogConselingOpsion(conselingOption1, Get.width);
+                        if (result == true) {
+                          Get.toNamed(Routes.PILIH_PSIKOLOG);
+                        }
+                      },
                     ),
                     20.height,
                     _buildCard(
                       "assets/images/mentor.png",
                       "Mentor",
                       "Jadi versi terbaik dirimu dan sukses meraih impian",
-                      () => _showDialogConselingOpsion(conselingOption2, Get.width),
+                      () async {
+                        final result =
+                            await _showDialogConselingOpsion(conselingOption2, Get.width);
+                        if (result == true) {
+                          Get.toNamed(Routes.PILIH_MENTOR);
+                        }
+                      },
                     ),
                   ],
                 ),
@@ -109,8 +123,8 @@ class KonselingView extends StatelessWidget {
     );
   }
 
-  _showDialogConselingOpsion(List<String> opsion, double screenWidth) {
-    Get.dialog(AlertDialog(
+  Future<bool?> _showDialogConselingOpsion(List<String> opsion, double screenWidth) async {
+    return Get.dialog(AlertDialog(
       scrollable: true,
       insetPadding: const EdgeInsets.symmetric(horizontal: 20),
       shape: const RoundedRectangleBorder(
@@ -144,7 +158,7 @@ class KonselingView extends StatelessWidget {
             spacing: 20,
             children: List.generate(opsion.length, (index) {
               return InkWell(
-                onTap: () {},
+                onTap: () => Get.back(result: true),
                 child: Container(
                   alignment: Alignment.center,
                   width: (screenWidth - 90 - 20) / 2,

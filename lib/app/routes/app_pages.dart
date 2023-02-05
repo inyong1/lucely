@@ -15,8 +15,16 @@ import '../modules/login/views/login_view.dart';
 import '../modules/main/bindings/main_binding.dart';
 import '../modules/main/middleware/home_middleware.dart';
 import '../modules/main/views/main_view.dart';
+import '../modules/mentor_detail/bindings/mentor_detail_binding.dart';
+import '../modules/mentor_detail/views/mentor_detail_view.dart';
 import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
+import '../modules/pilih_mentor/bindings/pilih_mentor_binding.dart';
+import '../modules/pilih_mentor/views/pilih_mentor_view.dart';
+import '../modules/pilih_psikolog/bindings/pilih_psikolog_binding.dart';
+import '../modules/pilih_psikolog/views/pilih_psikolog_view.dart';
+import '../modules/psikolog_detail/bindings/psikolog_detail_binding.dart';
+import '../modules/psikolog_detail/views/psikolog_detail_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/tentang_app/bindings/tentang_app_binding.dart';
@@ -89,6 +97,26 @@ class AppPages {
       name: _Paths.KONTAK_ADMIN,
       page: () => const KontakAdminView(),
       binding: KontakAdminBinding(),
+    ),
+    GetPage(
+      name: _Paths.PILIH_PSIKOLOG,
+      page: () => const PilihPsikologView(),
+      binding: PilihPsikologBinding(),
+    ),
+    GetPage(
+      name: _Paths.PILIH_MENTOR,
+      page: () => const PilihMentorView(),
+      binding: PilihMentorBinding(),
+    ),
+    GetPage(
+      name: _Paths.PSIKOLOG_DETAIL,
+      page: () => const PsikologDetailView(),
+      binding: PsikologDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.MENTOR_DETAIL,
+      page: () => const MentorDetailView(),
+      binding: MentorDetailBinding(),
     ),
   ];
 }
