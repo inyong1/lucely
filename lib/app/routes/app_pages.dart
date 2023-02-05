@@ -23,6 +23,8 @@ import '../modules/pilih_mentor/bindings/pilih_mentor_binding.dart';
 import '../modules/pilih_mentor/views/pilih_mentor_view.dart';
 import '../modules/pilih_psikolog/bindings/pilih_psikolog_binding.dart';
 import '../modules/pilih_psikolog/views/pilih_psikolog_view.dart';
+import '../modules/pilih_tanggal/bindings/pilih_tanggal_binding.dart';
+import '../modules/pilih_tanggal/views/pilih_tanggal_view.dart';
 import '../modules/psikolog_detail/bindings/psikolog_detail_binding.dart';
 import '../modules/psikolog_detail/views/psikolog_detail_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -117,6 +119,11 @@ class AppPages {
       name: _Paths.MENTOR_DETAIL,
       page: () => const MentorDetailView(),
       binding: MentorDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.PILIH_TANGGAL,
+      page: () => const PilihTanggalView(),
+      binding: PilihTanggalBinding(),
     ),
   ];
 }

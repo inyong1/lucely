@@ -17,6 +17,7 @@ abstract class Routes {
   static const PILIH_MENTOR = _Paths.PILIH_MENTOR;
   static const PSIKOLOG_DETAIL = _Paths.PSIKOLOG_DETAIL;
   static const MENTOR_DETAIL = _Paths.MENTOR_DETAIL;
+  static const PILIH_TANGGAL = _Paths.PILIH_TANGGAL;
 }
 
 abstract class _Paths {
@@ -35,4 +36,5 @@ abstract class _Paths {
   static const PILIH_MENTOR = '/pilih-mentor';
   static const PSIKOLOG_DETAIL = '/psikolog-detail';
   static const MENTOR_DETAIL = '/mentor-detail';
+  static const PILIH_TANGGAL = '/pilih-tanggal';
 }
