@@ -1,11 +1,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:lucely/app/modules/main/controllers/home_controller.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
 import '../../../../../constant/app_color.dart';
 
-class MenuGridWidget extends StatelessWidget {
+class MenuGridWidget extends GetView<HomeController> {
   const MenuGridWidget({super.key});
 
   @override
@@ -19,15 +21,23 @@ class MenuGridWidget extends StatelessWidget {
         childAspectRatio: 3 / 4,
       ),
       children: [
-        _buildItem("assets/icons/cunseling.png", "Konseling"),
-        _buildItem("assets/icons/event.png", "Event"),
-        _buildItem("assets/icons/luce_guide.png", "LuceGuide"),
-        _buildItem("assets/icons/bookluce.png", "Bookluce"),
+        _buildItem("assets/icons/cunseling.png", "Konseling", (){
+          controller.mainController.tabIndexObs.value = 1;
+        }),
+        _buildItem("assets/icons/event.png", "Event", (){
+
+        }),
+        _buildItem("assets/icons/luce_guide.png", "LuceGuide", (){
+
+        }),
+        _buildItem("assets/icons/bookluce.png", "Bookluce", (){
+
+        }),
       ],
     );
   }
 
-  Widget _buildItem(String asset, String label) {
+  Widget _buildItem(String asset, String label, VoidCallback onTap) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -41,7 +51,7 @@ class MenuGridWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: onTap,
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Image.asset(asset),

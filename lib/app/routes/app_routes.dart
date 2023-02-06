@@ -18,6 +18,11 @@ abstract class Routes {
   static const PSIKOLOG_DETAIL = _Paths.PSIKOLOG_DETAIL;
   static const MENTOR_DETAIL = _Paths.MENTOR_DETAIL;
   static const PILIH_TANGGAL = _Paths.PILIH_TANGGAL;
+  static const DETAIL_TRANSAKSI = _Paths.DETAIL_TRANSAKSI;
+  static const VOUCHER_KONSELING = _Paths.VOUCHER_KONSELING;
+  static const METODE_PEMBAYARAN = _Paths.METODE_PEMBAYARAN;
+  static const MENUNGGU_PEMBAYARAN = _Paths.MENUNGGU_PEMBAYARAN;
+  static const STATUS_PEMBAYARAN = _Paths.STATUS_PEMBAYARAN;
 }
 
 abstract class _Paths {
@@ -37,4 +42,9 @@ abstract class _Paths {
   static const PSIKOLOG_DETAIL = '/psikolog-detail';
   static const MENTOR_DETAIL = '/mentor-detail';
   static const PILIH_TANGGAL = '/pilih-tanggal';
+  static const DETAIL_TRANSAKSI = '/detail-transaksi';
+  static const VOUCHER_KONSELING = '/voucher-konseling';
+  static const METODE_PEMBAYARAN = '/metode-pembayaran';
+  static const MENUNGGU_PEMBAYARAN = '/menunggu-pembayaran';
+  static const STATUS_PEMBAYARAN = '/status-pembayaran';
 }

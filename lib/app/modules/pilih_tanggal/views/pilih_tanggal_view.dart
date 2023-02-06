@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:lucely/app/routes/app_pages.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
 import '../../../constant/app_color.dart';
@@ -17,7 +18,7 @@ class PilihTanggalView extends GetView<PilihTanggalController> {
         backgroundColor: Colors.transparent,
         centerTitle: true,
         leading:
-            InkResponse(onTap: () => Get.back(), child: const Icon(Icons.chevron_left, size: 28)),
+        InkResponse(onTap: () => Get.back(), child: const Icon(Icons.chevron_left, size: 28)),
       ),
       body: Column(children: [
         const Divider(height: 2, color: AppColor.darkGrey),
@@ -36,15 +37,15 @@ class PilihTanggalView extends GetView<PilihTanggalController> {
               16.height,
               Row(
                 children: [
-                  _buildItemTanggal("Senin", 24),
+                  _buildItemTanggal(context, "Senin", 24),
                   8.width,
-                  _buildItemTanggal("Selasa", 25),
+                  _buildItemTanggal(context, "Selasa", 25),
                   8.width,
-                  _buildItemTanggal("Rabu", 26),
+                  _buildItemTanggal(context, "Rabu", 26),
                   8.width,
-                  _buildItemTanggal("Kamis", 27),
+                  _buildItemTanggal(context, "Kamis", 27),
                   8.width,
-                  _buildItemTanggal("Kamis", -1),
+                  _buildItemTanggal(context, "Kamis", -1),
                   8.width,
                 ],
               ),
@@ -77,18 +78,31 @@ class PilihTanggalView extends GetView<PilihTanggalController> {
         Container(
             padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
             width: double.infinity,
-            child: ElevatedButton(onPressed: () {}, child: const Text('Lanjutkan Transaksi'))),
+            child: ElevatedButton(onPressed: () {
+              if(controller.selectedDateObs.value==0){
+                Get.snackbar("Dilarang", "Harap pilih tanggal");
+                return;
+              }
+              if(controller.selectedTime.isEmpty){
+                Get.snackbar("Dilarang", "Harap pilih jam");
+                return;
+              }
+              Get.toNamed(Routes.DETAIL_TRANSAKSI);
+            }, child: const Text('Lanjutkan Transaksi'))),
       ]),
     );
   }
 
-  Widget _buildItemTanggal(String hari, int date) {
+  Widget _buildItemTanggal(BuildContext context, String hari, int date) {
     return Obx(() {
       return InkWell(
         onTap: () {
           controller.selectedDateObs.value = date;
-          if(date == -1){
-
+          if (date == -1) {
+            showDatePicker(context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime.now(),
+                lastDate: DateTime.now().add(30.days));
           }
         },
         child: Container(
@@ -98,30 +112,30 @@ class PilihTanggalView extends GetView<PilihTanggalController> {
             borderRadius: BorderRadius.circular(6),
             border: Border.all(
                 color:
-                    controller.selectedDateObs.value == date ? AppColor.blue : Colors.transparent,
+                controller.selectedDateObs.value == date ? AppColor.blue : Colors.transparent,
                 width: 1.5),
           ),
           child: date == -1
               ? Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.calendar_month_outlined),
-                )
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.calendar_month_outlined),
+          )
               : Column(
-                  children: [
-                    Text(
-                      hari,
-                      style: const TextStyle(fontSize: 10),
-                    ),
-                    Text(
-                      "$date",
-                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                    ),
-                    const Text(
-                      "Feb",
-                      style: TextStyle(fontSize: 10),
-                    ),
-                  ],
-                ),
+            children: [
+              Text(
+                hari,
+                style: const TextStyle(fontSize: 10),
+              ),
+              Text(
+                "$date",
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+              const Text(
+                "Feb",
+                style: TextStyle(fontSize: 10),
+              ),
+            ],
+          ),
         ),
       );
     });

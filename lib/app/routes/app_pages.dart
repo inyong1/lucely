@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/detail_transaksi/bindings/detail_transaksi_binding.dart';
+import '../modules/detail_transaksi/views/detail_transaksi_view.dart';
 import '../modules/editakun/bindings/editakun_binding.dart';
 import '../modules/editakun/views/editakun_view.dart';
 import '../modules/faq/bindings/faq_binding.dart';
@@ -17,6 +19,10 @@ import '../modules/main/middleware/home_middleware.dart';
 import '../modules/main/views/main_view.dart';
 import '../modules/mentor_detail/bindings/mentor_detail_binding.dart';
 import '../modules/mentor_detail/views/mentor_detail_view.dart';
+import '../modules/menunggu_pembayaran/bindings/menunggu_pembayaran_binding.dart';
+import '../modules/menunggu_pembayaran/views/menunggu_pembayaran_view.dart';
+import '../modules/metode_pembayaran/bindings/metode_pembayaran_binding.dart';
+import '../modules/metode_pembayaran/views/metode_pembayaran_view.dart';
 import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
 import '../modules/pilih_mentor/bindings/pilih_mentor_binding.dart';
@@ -29,8 +35,12 @@ import '../modules/psikolog_detail/bindings/psikolog_detail_binding.dart';
 import '../modules/psikolog_detail/views/psikolog_detail_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/status_pembayaran/bindings/status_pembayaran_binding.dart';
+import '../modules/status_pembayaran/views/status_pembayaran_view.dart';
 import '../modules/tentang_app/bindings/tentang_app_binding.dart';
 import '../modules/tentang_app/views/tentang_app_view.dart';
+import '../modules/voucher_konseling/bindings/voucher_konseling_binding.dart';
+import '../modules/voucher_konseling/views/voucher_konseling_view.dart';
 
 part 'app_routes.dart';
 
@@ -124,6 +134,31 @@ class AppPages {
       name: _Paths.PILIH_TANGGAL,
       page: () => const PilihTanggalView(),
       binding: PilihTanggalBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_TRANSAKSI,
+      page: () => const DetailTransaksiView(),
+      binding: DetailTransaksiBinding(),
+    ),
+    GetPage(
+      name: _Paths.VOUCHER_KONSELING,
+      page: () => const VoucherKonselingView(),
+      binding: VoucherKonselingBinding(),
+    ),
+    GetPage(
+      name: _Paths.METODE_PEMBAYARAN,
+      page: () => const MetodePembayaranView(),
+      binding: MetodePembayaranBinding(),
+    ),
+    GetPage(
+      name: _Paths.MENUNGGU_PEMBAYARAN,
+      page: () => const MenungguPembayaranView(),
+      binding: MenungguPembayaranBinding(),
+    ),
+    GetPage(
+      name: _Paths.STATUS_PEMBAYARAN,
+      page: () => const StatusPembayaranView(),
+      binding: StatusPembayaranBinding(),
     ),
   ];
 }

@@ -19,8 +19,6 @@ class _KonselingSliderState extends State<KonselingSlider> {
     tabs.addAll([
       _buildPageViewChild(),
       _buildPageViewChild(),
-      _buildPageViewChild(),
-      _buildPageViewChild(),
     ]);
   }
 
@@ -32,6 +30,7 @@ class _KonselingSliderState extends State<KonselingSlider> {
         SizedBox(
           height: 144,
           child: PageView(
+            physics: const BouncingScrollPhysics(),
             onPageChanged: (index) {
               setState(() {
                 _pageIndex = index;
