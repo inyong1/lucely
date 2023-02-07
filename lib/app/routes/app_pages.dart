@@ -1,9 +1,13 @@
 import 'package:get/get.dart';
 
+import '../modules/bookluce/bindings/bookluce_binding.dart';
+import '../modules/bookluce/views/bookluce_view.dart';
 import '../modules/detail_transaksi/bindings/detail_transaksi_binding.dart';
 import '../modules/detail_transaksi/views/detail_transaksi_view.dart';
 import '../modules/editakun/bindings/editakun_binding.dart';
 import '../modules/editakun/views/editakun_view.dart';
+import '../modules/event/bindings/event_binding.dart';
+import '../modules/event/views/event_view.dart';
 import '../modules/faq/bindings/faq_binding.dart';
 import '../modules/faq/views/faq_view.dart';
 import '../modules/gantisandi/bindings/gantisandi_binding.dart';
@@ -14,6 +18,10 @@ import '../modules/kontak_admin/bindings/kontak_admin_binding.dart';
 import '../modules/kontak_admin/views/kontak_admin_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/luce_guide/bindings/luce_guide_binding.dart';
+import '../modules/luce_guide/views/luce_guide_view.dart';
+import '../modules/luceguide_index/bindings/luceguide_index_binding.dart';
+import '../modules/luceguide_index/views/luceguide_index_view.dart';
 import '../modules/main/bindings/main_binding.dart';
 import '../modules/main/middleware/home_middleware.dart';
 import '../modules/main/views/main_view.dart';
@@ -159,6 +167,26 @@ class AppPages {
       name: _Paths.STATUS_PEMBAYARAN,
       page: () => const StatusPembayaranView(),
       binding: StatusPembayaranBinding(),
+    ),
+    GetPage(
+      name: _Paths.LUCE_GUIDE,
+      page: () => const LuceGuideView(),
+      binding: LuceGuideBinding(),
+    ),
+    GetPage(
+      name: _Paths.EVENT,
+      page: () => const EventView(),
+      binding: EventBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOKLUCE,
+      page: () => const BookluceView(),
+      binding: BookluceBinding(),
+    ),
+    GetPage(
+      name: _Paths.LUCEGUIDE_INDEX,
+      page: () => const LuceguideIndexView(),
+      binding: LuceguideIndexBinding(),
     ),
   ];
 }

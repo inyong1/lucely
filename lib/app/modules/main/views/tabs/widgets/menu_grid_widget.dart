@@ -6,6 +6,7 @@ import 'package:lucely/app/modules/main/controllers/home_controller.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
 import '../../../../../constant/app_color.dart';
+import '../../../../../routes/app_pages.dart';
 
 class MenuGridWidget extends GetView<HomeController> {
   const MenuGridWidget({super.key});
@@ -25,13 +26,13 @@ class MenuGridWidget extends GetView<HomeController> {
           controller.mainController.tabIndexObs.value = 1;
         }),
         _buildItem("assets/icons/event.png", "Event", (){
-
+          Get.toNamed(Routes.EVENT);
         }),
         _buildItem("assets/icons/luce_guide.png", "LuceGuide", (){
-
+          Get.toNamed(Routes.LUCE_GUIDE);
         }),
         _buildItem("assets/icons/bookluce.png", "Bookluce", (){
-
+          Get.toNamed(Routes.BOOKLUCE);
         }),
       ],
     );

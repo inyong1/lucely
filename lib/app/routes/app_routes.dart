@@ -23,6 +23,10 @@ abstract class Routes {
   static const METODE_PEMBAYARAN = _Paths.METODE_PEMBAYARAN;
   static const MENUNGGU_PEMBAYARAN = _Paths.MENUNGGU_PEMBAYARAN;
   static const STATUS_PEMBAYARAN = _Paths.STATUS_PEMBAYARAN;
+  static const LUCE_GUIDE = _Paths.LUCE_GUIDE;
+  static const EVENT = _Paths.EVENT;
+  static const BOOKLUCE = _Paths.BOOKLUCE;
+  static const LUCEGUIDE_INDEX = _Paths.LUCEGUIDE_INDEX;
 }
 
 abstract class _Paths {
@@ -47,4 +51,8 @@ abstract class _Paths {
   static const METODE_PEMBAYARAN = '/metode-pembayaran';
   static const MENUNGGU_PEMBAYARAN = '/menunggu-pembayaran';
   static const STATUS_PEMBAYARAN = '/status-pembayaran';
+  static const LUCE_GUIDE = '/luce-guide';
+  static const EVENT = '/event';
+  static const BOOKLUCE = '/bookluce';
+  static const LUCEGUIDE_INDEX = '/luceguide-index';
 }
