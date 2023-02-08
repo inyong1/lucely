@@ -35,6 +35,7 @@ class OpenLuceguideController extends GetxController {
   void changeIndex(int index){
     currentSessionIndex.value = index;
     sessionTitleObs.value = LuceguideIndexController.sessionList[index].title;
+    scrollController.animateTo(0,duration: 500.milliseconds, curve: Curves.easeInOut);
   }
 
   void incrementIdex() {

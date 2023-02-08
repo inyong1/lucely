@@ -68,6 +68,14 @@ class OpenLuceguideView extends GetView<OpenLuceguideController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
+                          Obx((){
+                            if(controller.currentSessionIndex.value == 1){
+                              return Transform.translate(
+                                  offset: const Offset(0, -30),
+                                  child: Image.asset("assets/images/mind_management.png", height: 200));
+                            }
+                            return const SizedBox.shrink();
+                          }),
                           Obx(() {
                             return Text(
                               controller.contentObs.value,

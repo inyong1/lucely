@@ -18,6 +18,7 @@ class LuceguideIndexController extends GetxController {
     LuceGuideSession(title: "Mengenali Kecemasan"),
     LuceGuideSession(title: "Kendalikan Emosi dan Pikiran"),
     LuceGuideSession(title: "Bangun Kebiasaan Lebih Baik"),
+    LuceGuideSession(title: "Penutup"),
   ];
   final headerBacgroundColorObs = AppColor.lemonChiffon.obs;
   final titleObs = "Mengatasi Kesepian".obs;
