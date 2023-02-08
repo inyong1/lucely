@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/luceguide_index_controller.dart';
 
 class LuceguideIndexView extends GetView<LuceguideIndexController> {
@@ -64,15 +65,11 @@ class LuceguideIndexView extends GetView<LuceguideIndexController> {
                 padding: const EdgeInsets.all(24),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _buildIndexItem("Mengenali Kecemasan"),
-                    _buildIndexItem("Kendalikan Emosi dan Pikiran"),
-                    _buildIndexItem("Bangun Kebiasaan Lebih Baik"),
-                    _buildIndexItem("Mengenali Kecemasan"),
-                    _buildIndexItem("Kendalikan Emosi dan Pikiran"),
-                    _buildIndexItem("Bangun Kebiasaan Lebih Baik"),
-
-                  ],
+                  children: List.generate(LuceguideIndexController.sessionList.length, (index) {
+                    return _buildIndexItem(LuceguideIndexController.sessionList[index].title, () {
+                      Get.toNamed(Routes.OPEN_LUCEGUIDE, arguments: index);
+                    });
+                  }),
                 ),
               ),
             ),
@@ -82,21 +79,24 @@ class LuceguideIndexView extends GetView<LuceguideIndexController> {
     );
   }
 
-  Widget _buildIndexItem(String title) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(16), border: Border.all(width: 1)),
-      margin: const EdgeInsets.only(bottom: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text('Sesi 1'),
-          12.height,
-          Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-          12.height,
-          Text('5 Menit'),
-        ],
+  Widget _buildIndexItem(String title, VoidCallback onTap) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration:
+            BoxDecoration(borderRadius: BorderRadius.circular(16), border: Border.all(width: 1)),
+        margin: const EdgeInsets.only(bottom: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text('Sesi 1'),
+            12.height,
+            Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            12.height,
+            Text('5 Menit'),
+          ],
+        ),
       ),
     );
   }

@@ -1,10 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:lucely/app/modules/luceguide_index/luce_guide_session.dart';
+import 'package:lucely/app/modules/luceguide_index/luce_guide_session.dart';
+import 'package:lucely/app/modules/luceguide_index/luce_guide_session.dart';
+import 'package:lucely/app/modules/luceguide_index/luce_guide_session.dart';
+import 'package:lucely/app/modules/luceguide_index/luce_guide_session.dart';
+import 'package:lucely/app/modules/luceguide_index/luce_guide_session.dart';
 import '../../../constant/app_color.dart';
 
 class LuceguideIndexController extends GetxController {
+
+  static const sessionList = [
+    LuceGuideSession(title: "Mengenali Kecemasan"),
+    LuceGuideSession(title: "Kendalikan Emosi dan Pikiran"),
+    LuceGuideSession(title: "Bangun Kebiasaan Lebih Baik"),
+    LuceGuideSession(title: "Mengenali Kecemasan"),
+    LuceGuideSession(title: "Kendalikan Emosi dan Pikiran"),
+    LuceGuideSession(title: "Bangun Kebiasaan Lebih Baik"),
+  ];
   final headerBacgroundColorObs = AppColor.lemonChiffon.obs;
   final titleObs = "Mengatasi Kesepian".obs;
   final topTitleObs = "".obs;

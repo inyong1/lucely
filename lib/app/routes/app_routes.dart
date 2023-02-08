@@ -27,6 +27,7 @@ abstract class Routes {
   static const EVENT = _Paths.EVENT;
   static const BOOKLUCE = _Paths.BOOKLUCE;
   static const LUCEGUIDE_INDEX = _Paths.LUCEGUIDE_INDEX;
+  static const OPEN_LUCEGUIDE = _Paths.OPEN_LUCEGUIDE;
 }
 
 abstract class _Paths {
@@ -55,4 +56,5 @@ abstract class _Paths {
   static const EVENT = '/event';
   static const BOOKLUCE = '/bookluce';
   static const LUCEGUIDE_INDEX = '/luceguide-index';
+  static const OPEN_LUCEGUIDE = '/open-luceguide';
 }

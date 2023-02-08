@@ -33,6 +33,8 @@ import '../modules/metode_pembayaran/bindings/metode_pembayaran_binding.dart';
 import '../modules/metode_pembayaran/views/metode_pembayaran_view.dart';
 import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
+import '../modules/open_luceguide/bindings/open_luceguide_binding.dart';
+import '../modules/open_luceguide/views/open_luceguide_view.dart';
 import '../modules/pilih_mentor/bindings/pilih_mentor_binding.dart';
 import '../modules/pilih_mentor/views/pilih_mentor_view.dart';
 import '../modules/pilih_psikolog/bindings/pilih_psikolog_binding.dart';
@@ -187,6 +189,11 @@ class AppPages {
       name: _Paths.LUCEGUIDE_INDEX,
       page: () => const LuceguideIndexView(),
       binding: LuceguideIndexBinding(),
+    ),
+    GetPage(
+      name: _Paths.OPEN_LUCEGUIDE,
+      page: () => const OpenLuceguideView(),
+      binding: OpenLuceguideBinding(),
     ),
   ];
 }
