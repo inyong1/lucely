@@ -31,6 +31,8 @@ abstract class Routes {
   static const LUCEBOOK_INDEX = _Paths.LUCEBOOK_INDEX;
   static const OPEN_BOOKLUCE = _Paths.OPEN_BOOKLUCE;
   static const LUCEBOOK_CHAPTER_LIST = _Paths.LUCEBOOK_CHAPTER_LIST;
+  static const OPEN_EVENT = _Paths.OPEN_EVENT;
+  static const DAFTAR_EVENT = _Paths.DAFTAR_EVENT;
 }
 
 abstract class _Paths {
@@ -63,4 +65,6 @@ abstract class _Paths {
   static const LUCEBOOK_INDEX = '/lucebook-index';
   static const OPEN_BOOKLUCE = '/open-bookluce';
   static const LUCEBOOK_CHAPTER_LIST = '/lucebook-chapter-list';
+  static const OPEN_EVENT = '/open-event';
+  static const DAFTAR_EVENT = '/daftar-event';
 }

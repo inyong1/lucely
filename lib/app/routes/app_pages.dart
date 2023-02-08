@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/bookluce/bindings/bookluce_binding.dart';
 import '../modules/bookluce/views/bookluce_view.dart';
+import '../modules/daftar_event/bindings/daftar_event_binding.dart';
+import '../modules/daftar_event/views/daftar_event_view.dart';
 import '../modules/detail_transaksi/bindings/detail_transaksi_binding.dart';
 import '../modules/detail_transaksi/views/detail_transaksi_view.dart';
 import '../modules/editakun/bindings/editakun_binding.dart';
@@ -39,6 +41,8 @@ import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
 import '../modules/open_bookluce/bindings/open_bookluce_binding.dart';
 import '../modules/open_bookluce/views/open_bookluce_view.dart';
+import '../modules/open_event/bindings/open_event_binding.dart';
+import '../modules/open_event/views/open_event_view.dart';
 import '../modules/open_luceguide/bindings/open_luceguide_binding.dart';
 import '../modules/open_luceguide/views/open_luceguide_view.dart';
 import '../modules/pilih_mentor/bindings/pilih_mentor_binding.dart';
@@ -215,6 +219,16 @@ class AppPages {
       name: _Paths.LUCEBOOK_CHAPTER_LIST,
       page: () => const LucebookChapterListView(),
       binding: LucebookChapterListBinding(),
+    ),
+    GetPage(
+      name: _Paths.OPEN_EVENT,
+      page: () => const OpenEventView(),
+      binding: OpenEventBinding(),
+    ),
+    GetPage(
+      name: _Paths.DAFTAR_EVENT,
+      page: () => const DaftarEventView(),
+      binding: DaftarEventBinding(),
     ),
   ];
 }

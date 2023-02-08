@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
 import '../../../constant/app_color.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/event_controller.dart';
 
 class EventView extends GetView<EventController> {
@@ -65,7 +66,7 @@ class EventView extends GetView<EventController> {
         color: const Color(0xffeef3f7),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
         child: InkWell(
-          onTap: (){},
+          onTap: ()=>Get.toNamed(Routes.OPEN_EVENT),
           child: Padding(
             padding: const EdgeInsets.all(12),
             child: Row(
