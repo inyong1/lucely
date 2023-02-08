@@ -28,6 +28,9 @@ abstract class Routes {
   static const BOOKLUCE = _Paths.BOOKLUCE;
   static const LUCEGUIDE_INDEX = _Paths.LUCEGUIDE_INDEX;
   static const OPEN_LUCEGUIDE = _Paths.OPEN_LUCEGUIDE;
+  static const LUCEBOOK_INDEX = _Paths.LUCEBOOK_INDEX;
+  static const OPEN_BOOKLUCE = _Paths.OPEN_BOOKLUCE;
+  static const LUCEBOOK_CHAPTER_LIST = _Paths.LUCEBOOK_CHAPTER_LIST;
 }
 
 abstract class _Paths {
@@ -57,4 +60,7 @@ abstract class _Paths {
   static const BOOKLUCE = '/bookluce';
   static const LUCEGUIDE_INDEX = '/luceguide-index';
   static const OPEN_LUCEGUIDE = '/open-luceguide';
+  static const LUCEBOOK_INDEX = '/lucebook-index';
+  static const OPEN_BOOKLUCE = '/open-bookluce';
+  static const LUCEBOOK_CHAPTER_LIST = '/lucebook-chapter-list';
 }

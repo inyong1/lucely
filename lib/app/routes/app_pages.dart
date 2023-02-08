@@ -20,6 +20,10 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/luce_guide/bindings/luce_guide_binding.dart';
 import '../modules/luce_guide/views/luce_guide_view.dart';
+import '../modules/lucebook_chapter_list/bindings/lucebook_chapter_list_binding.dart';
+import '../modules/lucebook_chapter_list/views/lucebook_chapter_list_view.dart';
+import '../modules/lucebook_index/bindings/lucebook_index_binding.dart';
+import '../modules/lucebook_index/views/lucebook_index_view.dart';
 import '../modules/luceguide_index/bindings/luceguide_index_binding.dart';
 import '../modules/luceguide_index/views/luceguide_index_view.dart';
 import '../modules/main/bindings/main_binding.dart';
@@ -33,6 +37,8 @@ import '../modules/metode_pembayaran/bindings/metode_pembayaran_binding.dart';
 import '../modules/metode_pembayaran/views/metode_pembayaran_view.dart';
 import '../modules/notification/bindings/notification_binding.dart';
 import '../modules/notification/views/notification_view.dart';
+import '../modules/open_bookluce/bindings/open_bookluce_binding.dart';
+import '../modules/open_bookluce/views/open_bookluce_view.dart';
 import '../modules/open_luceguide/bindings/open_luceguide_binding.dart';
 import '../modules/open_luceguide/views/open_luceguide_view.dart';
 import '../modules/pilih_mentor/bindings/pilih_mentor_binding.dart';
@@ -194,6 +200,21 @@ class AppPages {
       name: _Paths.OPEN_LUCEGUIDE,
       page: () => const OpenLuceguideView(),
       binding: OpenLuceguideBinding(),
+    ),
+    GetPage(
+      name: _Paths.LUCEBOOK_INDEX,
+      page: () => const LucebookIndexView(),
+      binding: LucebookIndexBinding(),
+    ),
+    GetPage(
+      name: _Paths.OPEN_BOOKLUCE,
+      page: () => const OpenBookluceView(),
+      binding: OpenBookluceBinding(),
+    ),
+    GetPage(
+      name: _Paths.LUCEBOOK_CHAPTER_LIST,
+      page: () => const LucebookChapterListView(),
+      binding: LucebookChapterListBinding(),
     ),
   ];
 }
