@@ -85,9 +85,57 @@ class DaftarEventView extends GetView<DaftarEventController> {
         const Divider(thickness: 1.5),
         Padding(
           padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 10),
-          child: ElevatedButton(onPressed: () {}, child: Text('Daftar Sekarang')),
+          child: ElevatedButton(
+              onPressed: _dialogDaftarBerhasil, child: const Text('Daftar Sekarang')),
         ),
       ]),
     );
+  }
+
+  void _dialogDaftarBerhasil() {
+    Get.dialog(AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      contentPadding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          300.width,
+          Container(
+            width: 50,
+            height: 5,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(3),
+              color: AppColor.darkGrey,
+            ),
+          ),
+          20.height,
+          const Text(
+            "Berhasil Mendaftar!",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+          Image.asset("assets/images/calendar.png", width: 150),
+          const Text(
+            "Langkah Setelah Mendaftar",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+          ),
+          const Text(
+            "Gabung grup WhatsApp melali bit.ly/Event02 dan Konfirmasi pendaftaran ke Contact Person",
+            style: TextStyle(fontSize: 12),
+          ),
+          20.height,
+          SizedBox(
+            height: 36,
+            width: 200,
+            child: ElevatedButton(
+              onPressed: () {
+                Get.close(3);
+              },
+              child: const Text('Lihat Event'),
+            ),
+          ),
+          16.height,
+        ],
+      ),
+    ));
   }
 }
