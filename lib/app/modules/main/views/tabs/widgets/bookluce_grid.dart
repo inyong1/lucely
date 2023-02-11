@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lucely/extensions/num_ext.dart';
+
+import '../../../../../routes/app_pages.dart';
 
 class BookluceGrid extends StatelessWidget {
   const BookluceGrid({super.key});
@@ -16,14 +19,16 @@ class BookluceGrid extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Row(
-                children: const [
-                  Expanded(
+                children:  [
+                  const Expanded(
                       child:
                           Text("Bookluce Terbaru", style: TextStyle(fontWeight: FontWeight.bold))),
-                  Text('Linat semua', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                  InkWell(
+                      onTap:()=> Get.toNamed(Routes.BOOKLUCE),
+                      child: const Text('Linat semua', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12))),
                 ],
               ),
-              const Text("Baca ringkasa buku best seller internasional",
+              const Text("Baca ringkasan buku best seller internasional",
                   style: TextStyle(fontSize: 12)),
             ],
           ),

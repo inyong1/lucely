@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lucely/app/constant/app_color.dart';
 import 'package:lucely/extensions/num_ext.dart';
+
+import '../../../../../routes/app_pages.dart';
 
 class EventSlider extends StatelessWidget {
   const EventSlider({super.key});
@@ -10,6 +13,19 @@ class EventSlider extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20, bottom: 4),
+          child: Row(
+            children:  [
+              const Expanded(
+                  child:
+                  Text("Event Terbaru", style: TextStyle(fontWeight: FontWeight.bold))),
+              InkWell(
+                  onTap:()=> Get.toNamed(Routes.EVENT),
+                  child: const Text('Linat semua', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12))),
+            ],
+          ),
+        ),
         const Padding(
           padding: EdgeInsets.only(left: 20, right: 20),
           child: Text('Event Terdekat Diskusi langsung sekaligus bedah kasus bareng ahlinya'),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lucely/app/routes/app_pages.dart';
 import 'package:lucely/extensions/num_ext.dart';
 
 import '../../../../../constant/app_color.dart';
@@ -15,15 +16,18 @@ class GuideSlider extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(
-            children: const [
-              Text(
+            children: [
+              const Text(
                 "LuceGuide",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
-              Spacer(),
-              Text('Lihat semua',
-                  style:
-                      TextStyle(color: AppColor.black, fontWeight: FontWeight.bold, fontSize: 12)),
+              const Spacer(),
+              InkWell(
+                onTap: () => Get.toNamed(Routes.LUCE_GUIDE),
+                child: const Text('Lihat semua',
+                    style: TextStyle(
+                        color: AppColor.black, fontWeight: FontWeight.bold, fontSize: 12)),
+              ),
             ],
           ),
         ),

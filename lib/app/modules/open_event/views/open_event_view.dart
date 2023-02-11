@@ -29,7 +29,7 @@ class _OpenEventViewState extends State<OpenEventView> {
 
   @override
   void dispose() {
-   _removeOverlayCard();
+    _removeOverlayCard();
     super.dispose();
   }
 
@@ -48,7 +48,7 @@ class _OpenEventViewState extends State<OpenEventView> {
                     // stretch: true,
                     // centerTitle: true,
                     // title: Text(controller.titleObs.value),
-                    // backgroundColor: controller.topBackgroundObs.value,
+                    backgroundColor: AppColor.white,
                     leading: InkResponse(
                         onTap: () => Get.back(),
                         child: const Icon(
@@ -229,6 +229,69 @@ class _OpenEventViewState extends State<OpenEventView> {
                               ],
                             ),
                             16.height,
+                            const Text(
+                              "Apa yang akan didapat",
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                            8.height,
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Container(
+                                width: 60,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                    color: AppColor.blue, borderRadius: BorderRadius.circular(4)),
+                              ),
+                            ),
+                            8.height,
+                            Row(
+                              children: [
+                                Container(
+                                    margin: const EdgeInsets.only(right: 8),
+                                    width: 5,
+                                    height: 5,
+                                    decoration: const BoxDecoration(
+                                        shape: BoxShape.circle, color: AppColor.black)),
+                                const Text('Mindfullness'),
+                              ],
+                            ),
+                            4.height,
+                            Row(
+                              children: [
+                                Container(
+                                    margin: const EdgeInsets.only(right: 8),
+                                    width: 5,
+                                    height: 5,
+                                    decoration: const BoxDecoration(
+                                        shape: BoxShape.circle, color: AppColor.black)),
+                                const Text('Afirmasi positif'),
+                              ],
+                            ),
+                            4.height,
+                            Row(
+                              children: [
+                                Container(
+                                    margin: const EdgeInsets.only(right: 8),
+                                    width: 5,
+                                    height: 5,
+                                    decoration: const BoxDecoration(
+                                        shape: BoxShape.circle, color: AppColor.black)),
+                                const Text('Perbedaan impian dan goals'),
+                              ],
+                            ),
+                            4.height,
+                            Row(
+                              children: [
+                                Container(
+                                    margin: const EdgeInsets.only(right: 8),
+                                    width: 5,
+                                    height: 5,
+                                    decoration: const BoxDecoration(
+                                        shape: BoxShape.circle, color: AppColor.black)),
+                                const Text('Praktik metode productivity'),
+                              ],
+                            ),
+                            4.height,
                           ],
                         ),
                       ),
@@ -239,7 +302,7 @@ class _OpenEventViewState extends State<OpenEventView> {
             ),
             Container(
               color: AppColor.white,
-              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 16,top: 16),
+              padding: const EdgeInsets.only(left: 20, right: 20, bottom: 16, top: 16),
               child: Row(
                 children: [
                   Container(
@@ -265,7 +328,7 @@ class _OpenEventViewState extends State<OpenEventView> {
                           height: 32,
                           width: 150,
                           child: ElevatedButton(
-                              onPressed: ()async{
+                              onPressed: () async {
                                 _removeOverlayCard();
                                 await Get.toNamed(Routes.DAFTAR_EVENT);
                                 _showOverlayCard();
@@ -294,6 +357,7 @@ class _OpenEventViewState extends State<OpenEventView> {
       child: CompositedTransformFollower(
         link: _overlayCardLayerLink,
         offset: const Offset(20, -50),
+        showWhenUnlinked: false,
         child: Card(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: Padding(

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lucely/app/constant/app_color.dart';
+import 'package:lucely/extensions/num_ext.dart';
+
+import '../../../../../routes/app_pages.dart';
 
 class KonselingSlider extends StatefulWidget {
   const KonselingSlider({super.key});
@@ -11,7 +15,18 @@ class KonselingSlider extends StatefulWidget {
 class _KonselingSliderState extends State<KonselingSlider> {
   int _pageIndex = 0;
   final tabs = <Widget>[];
-
+  static const conselingOption1 = [
+    "Kecemasan",
+    "Depresi",
+    "Kesepian",
+    "Overthingking",
+    "Trauma",
+    "Sosial",
+    "Kepribadian",
+    "Keluarga",
+    "Emosional",
+    "Percintaan",
+  ];
   @override
   void initState() {
     super.initState();
@@ -87,7 +102,13 @@ class _KonselingSliderState extends State<KonselingSlider> {
                           style: FilledButton.styleFrom(
                             minimumSize: const Size(0, 30)
                           ),
-                          onPressed: (){},
+                          onPressed: ()async{
+                            final result =
+                            await _showDialogConselingOpsion(conselingOption1, Get.width);
+                            if (result == true) {
+                              Get.toNamed(Routes.PILIH_PSIKOLOG);
+                            }
+                          },
                           child: const Text(
                             "Konseling Dengan Psikolog",
                             style: TextStyle(color: AppColor.white),
@@ -103,4 +124,62 @@ class _KonselingSliderState extends State<KonselingSlider> {
           )),
     );
   }
+
+  Future<bool?> _showDialogConselingOpsion(List<String> opsion, double screenWidth) async {
+    return Get.dialog(AlertDialog(
+      scrollable: true,
+      insetPadding: const EdgeInsets.symmetric(horizontal: 20),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(13)),
+      ),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(width: 500),
+          Center(
+              child: Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: AppColor.darkGrey,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              )),
+          16.height,
+          const Center(
+            child: Text(
+              'Pilih topik konseling',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+          16.height,
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            runSpacing: 16,
+            spacing: 20,
+            children: List.generate(opsion.length, (index) {
+              return InkWell(
+                onTap: () => Get.back(result: true),
+                child: Container(
+                  alignment: Alignment.center,
+                  width: (screenWidth - 90 - 20) / 2,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: AppColor.blue, width: 1.5),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                  child: Text(
+                    opsion[index],
+                    style: const TextStyle(fontSize: 12),
+                  ),
+                ),
+              );
+            }),
+          )
+        ],
+      ),
+    ));
+  }
+
 }

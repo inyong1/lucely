@@ -113,7 +113,7 @@ class KonselingView extends StatelessWidget {
                     height: 28,
                     child: FilledButton(
                       onPressed: onClick,
-                      child: const Text("Mulai Counselling", style: TextStyle(fontSize: 12)),
+                      child: const Text("Mulai Konseling", style: TextStyle(fontSize: 12)),
                     )),
               )
             ],
