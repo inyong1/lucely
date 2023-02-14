@@ -16,13 +16,15 @@ class EventSlider extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 20, right: 20, bottom: 4),
           child: Row(
-            children:  [
+            children: [
               const Expanded(
-                  child:
-                  Text("Event Terbaru", style: TextStyle(fontWeight: FontWeight.bold))),
+                child: Text("Event Terbaru", style: TextStyle(fontWeight: FontWeight.bold)),
+              ),
               InkWell(
-                  onTap:()=> Get.toNamed(Routes.EVENT),
-                  child: const Text('Linat semua', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12))),
+                onTap: () => Get.toNamed(Routes.EVENT),
+                child: const Text('Lihat semua',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+              ),
             ],
           ),
         ),

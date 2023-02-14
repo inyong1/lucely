@@ -34,6 +34,12 @@ void main() async {
 Future<void> initialize() async {
   await GetStorage.init();
   Get.put<LocalDataSource>(LocalDataSourceImpl(GetStorage()), permanent: true);
-  Get.put(AppStateService(localDataSource: Get.find()), permanent: true);
+  Get.put(
+    AppStateService(
+      localDataSource: Get.find(),
+      userRepository: Get.put(UserRepositoryImpl(Get.find())),
+    ),
+    permanent: true,
+  );
   Get.lazyPut<UserRepository>(() => UserRepositoryImpl(Get.find()), fenix: true);
 }

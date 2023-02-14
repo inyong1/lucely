@@ -25,7 +25,7 @@ class BookluceGrid extends StatelessWidget {
                           Text("Bookluce Terbaru", style: TextStyle(fontWeight: FontWeight.bold))),
                   InkWell(
                       onTap:()=> Get.toNamed(Routes.BOOKLUCE),
-                      child: const Text('Linat semua', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12))),
+                      child: const Text('Lihat semua', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12))),
                 ],
               ),
               const Text("Baca ringkasan buku best seller internasional",

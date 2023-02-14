@@ -70,4 +70,8 @@ class UserRepositoryImpl extends UserRepository {
     await localDataSource.writeString(key: LocalDataSource.KEY_USER, value: user.toString());
     return DataStateSuccess(data: user);
   }
+
+  Future<void> logout() async {
+    return localDataSource.writeString(key: LocalDataSource.KEY_USER, value: "");
+  }
 }

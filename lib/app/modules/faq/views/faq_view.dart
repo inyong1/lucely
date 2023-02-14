@@ -33,36 +33,35 @@ class FaqView extends BasePageView<FaqController> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ListTile(
-                      onTap: ()=>Get.toNamed(Routes.KONTAK_ADMIN),
+                      onTap: () => Get.toNamed(Routes.TENTANG_APP),
                       title: const Text('FaQs'),
                       trailing: const Icon(Icons.chevron_right),
                     ),
                     const Divider(height: 3, thickness: 1),
                     ListTile(
-                      onTap: () =>Get.toNamed(Routes.TENTANG_APP),
+                      onTap: () => Get.toNamed(Routes.TENTANG_APP),
                       title: const Text('Tangang App'),
                       trailing: const Icon(Icons.chevron_right),
                     ),
                     const Divider(height: 3, thickness: 1),
                     ListTile(
-                      onTap: () {},
+                      onTap: () => Get.toNamed(Routes.TENTANG_APP),
                       title: const Text('Kebijakan Privasi'),
                       trailing: const Icon(Icons.chevron_right),
                     ),
                     const Divider(height: 3, thickness: 1),
                     ListTile(
-                      onTap: () {},
+                      onTap: () => Get.toNamed(Routes.TENTANG_APP),
                       title: const Text('Syarat & Ketentuan'),
                       trailing: const Icon(Icons.chevron_right),
                     ),
                     const Divider(height: 3, thickness: 1),
                     ListTile(
-                      onTap: () {},
+                      onTap: () => Get.toNamed(Routes.TENTANG_APP),
                       title: const Text('Masukan & Saran'),
                       trailing: const Icon(Icons.chevron_right),
                     ),
                     const Divider(height: 3, thickness: 1),
-
                   ],
                 ),
               ),
