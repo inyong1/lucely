@@ -86,7 +86,7 @@ class _BottomSheetPilihPaketState extends State<BottomSheetPilihPaket> {
             children: [
               const Chip(
                 label: Text(
-                  'Paket Nayaman',
+                  'Paket Nyaman',
                   style:
                       TextStyle(fontSize: 12, color: AppColor.white, fontWeight: FontWeight.bold),
                 ),
